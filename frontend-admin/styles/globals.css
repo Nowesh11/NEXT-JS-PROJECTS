@@ -1,0 +1,260 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Base layer customizations */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans antialiased;
+    @apply bg-neutral-50 dark:bg-neutral-900;
+    @apply text-neutral-900 dark:text-neutral-100;
+    @apply transition-colors duration-300;
+  }
+  
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2 ring-offset-neutral-50 dark:ring-offset-neutral-900;
+  }
+  
+  /* Smooth transitions for theme switching */
+  * {
+    @apply transition-colors duration-200;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-neutral-100 dark:bg-neutral-800;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neutral-300 dark:bg-neutral-600 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-neutral-400 dark:bg-neutral-500;
+  }
+}
+
+/* Component layer */
+@layer components {
+  /* Admin-specific button styles */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg;
+    @apply transition-all duration-200 ease-in-out;
+    @apply focus-visible-ring;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700;
+    @apply shadow-soft hover:shadow-medium;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-neutral-900 border border-neutral-300;
+    @apply hover:bg-neutral-50 hover:border-neutral-400;
+    @apply dark:bg-neutral-800 dark:text-neutral-100 dark:border-neutral-600;
+    @apply dark:hover:bg-neutral-700 dark:hover:border-neutral-500;
+  }
+  
+  .btn-success {
+    @apply bg-success-600 text-white hover:bg-success-700;
+  }
+  
+  .btn-warning {
+    @apply bg-warning-500 text-white hover:bg-warning-600;
+  }
+  
+  .btn-error {
+    @apply bg-error-600 text-white hover:bg-error-700;
+  }
+  
+  /* Admin card styles */
+  .admin-card {
+    @apply bg-white dark:bg-neutral-800 rounded-xl shadow-soft;
+    @apply border border-neutral-200 dark:border-neutral-700;
+    @apply transition-all duration-200;
+  }
+  
+  .admin-card-hover {
+    @apply hover:shadow-medium hover:-translate-y-0.5;
+  }
+  
+  /* Admin sidebar styles */
+  .sidebar {
+    @apply bg-white dark:bg-neutral-800 border-r border-neutral-200 dark:border-neutral-700;
+    @apply transition-all duration-300;
+  }
+  
+  .sidebar-item {
+    @apply flex items-center px-4 py-3 text-sm font-medium text-neutral-700 dark:text-neutral-300;
+    @apply hover:bg-neutral-100 dark:hover:bg-neutral-700;
+    @apply hover:text-primary-600 dark:hover:text-primary-400;
+    @apply transition-all duration-200;
+  }
+  
+  .sidebar-item.active {
+    @apply bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400;
+    @apply border-r-2 border-primary-600 dark:border-primary-400;
+  }
+  
+  /* Admin table styles */
+  .admin-table {
+    @apply w-full bg-white dark:bg-neutral-800 rounded-lg shadow-soft overflow-hidden;
+  }
+  
+  .admin-table th {
+    @apply px-6 py-3 text-left text-xs font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider;
+    @apply bg-neutral-50 dark:bg-neutral-700;
+  }
+  
+  .admin-table td {
+    @apply px-6 py-4 whitespace-nowrap text-sm text-neutral-900 dark:text-neutral-100;
+    @apply border-t border-neutral-200 dark:border-neutral-700;
+  }
+  
+  .admin-table tr:hover {
+    @apply bg-neutral-50 dark:bg-neutral-700;
+  }
+  
+  /* Form styles */
+  .form-group {
+    @apply space-y-2;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-neutral-700 dark:text-neutral-300;
+  }
+  
+  .form-input {
+    @apply w-full px-3 py-2 text-sm border border-neutral-300 rounded-lg;
+    @apply bg-white dark:bg-neutral-800;
+    @apply text-neutral-900 dark:text-neutral-100;
+    @apply placeholder-neutral-500 dark:placeholder-neutral-400;
+    @apply focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+    @apply dark:border-neutral-600 dark:focus:ring-primary-400;
+    @apply transition-all duration-200;
+  }
+  
+  .form-textarea {
+    @apply form-input resize-none;
+  }
+  
+  .form-select {
+    @apply form-input;
+  }
+  
+  /* Status badges */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-success {
+    @apply bg-success-100 text-success-800 dark:bg-success-900/20 dark:text-success-400;
+  }
+  
+  .badge-warning {
+    @apply bg-warning-100 text-warning-800 dark:bg-warning-900/20 dark:text-warning-400;
+  }
+  
+  .badge-error {
+    @apply bg-error-100 text-error-800 dark:bg-error-900/20 dark:text-error-400;
+  }
+  
+  .badge-info {
+    @apply bg-primary-100 text-primary-800 dark:bg-primary-900/20 dark:text-primary-400;
+  }
+  
+  /* Loading states */
+  .loading-spinner {
+    @apply animate-spin rounded-full border-2 border-neutral-200 border-t-primary-600;
+  }
+  
+  /* Modal styles */
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-50;
+  }
+  
+  .modal-content {
+    @apply bg-white dark:bg-neutral-800 rounded-xl shadow-hard;
+    @apply border border-neutral-200 dark:border-neutral-700;
+    @apply max-h-[90vh] overflow-y-auto;
+  }
+}
+
+/* Utility layer */
+@layer utilities {
+  /* Layout utilities */
+  .container-admin {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Text utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+  }
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-10px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-primary {
+    @apply border-2 border-black dark:border-white;
+  }
+  
+  .admin-card {
+    @apply border-2 border-neutral-900 dark:border-neutral-100;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .sidebar {
+    display: none !important;
+  }
+}
