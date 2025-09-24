@@ -1,6 +1,6 @@
-# TLS Next.js Project - Reorganized Structure
+# NEXT-JS-PROJECTS - Tamil Language Society Website
 
-This project has been reorganized into separate frontend and backend directories for better maintainability and scalability.
+This is a comprehensive Next.js project for the Tamil Language Society website, organized into separate frontend and backend directories for better maintainability and scalability.
 
 ## Project Structure
 
